@@ -1,0 +1,255 @@
+// package the generated Java class lives in; no need to change this
+%package "parser";
+
+// name of the generated Java class; no need to change this
+%class "Parser";
+
+// no need to change this either
+%embed {:
+	// turn off automated error recovery
+	@Override
+	protected void recoverFromError(Symbol token, TokenStream in) throws java.io.IOException, Exception {
+		super.recoverFromError(new Symbol(0), in);
+	}
+:};
+
+// the list of all terminals; no need to change this
+%terminals MODULE, INT, VOID, IF, ELSE, WHILE, RETURN, BREAK, BOOLEAN, PUBLIC, TRUE, FALSE,
+           INT_LITERAL, STRING_LITERAL, ID, TYPE, IMPORT,
+           PLUS, MINUS, TIMES, DIV, MOD, EQEQ, NEQ, LEQ, GEQ, LT, GT,
+           LBRACKET, RPAREN, COMMA, RCURLY, LCURLY, SEMICOLON, RBRACKET, LPAREN, EQL;
+           
+// declaration of start symbol; no need to change this
+%goal Module;
+
+// temporary declaration, you can remove this once you have written all other rules
+%goal Dummy;
+
+/* TODO: Flesh out the rule for Module, and add rules for other nonterminals. Here is an example
+         of a rule you may want to add:
+         
+   Accessibility = PUBLIC
+		  |
+		  ;
+  */
+
+Module = MODULE ID LCURLY Imports Declarations RCURLY
+    ;
+
+Imports = Import Imports
+	|
+	;
+
+Import = IMPORT ID SEMICOLON
+	;
+
+Declarations = Declaration Declarations
+	|
+	;
+
+Declaration = FunctionDeclaration
+	| FieldDeclaration
+	| TypeDeclaration
+	;
+
+FunctionDeclaration = AccessId TypeName ID LPAREN ParameterList RPAREN LCURLY Statements RCURLY
+	;
+
+FieldDeclaration = AccessId TypeName ID SEMICOLON
+	;
+
+TypeDeclaration = AccessId TYPE ID EQL STRING_LITERAL SEMICOLON
+	;
+
+AccessId = PUBLIC
+	|
+	;
+
+TypeName = PrimitiveType
+	| ArrayType
+	| ID
+	;
+
+PrimitiveType = VOID
+	| Boolean
+	| INT_LITERAL
+	;
+
+Boolean = TRUE
+	| FALSE
+	;
+
+//Resolved Shift-Reduce conflict by selecting (LBRACKET: SHIFT; goto 148) 
+//over (LBRACKET: REDUCE TypeName = ID) using precedence.
+//LALR conflict
+ArrayType = TypeName LBRACKET RBRACKET 
+	;
+
+Parameter = TypeName ID
+	;
+
+/*
+//left recursion
+ParameterList = ParameterList COMMA Parameter 
+	;
+*/
+
+ParameterList = Parameter ParameterY
+	;
+
+ParameterY = COMMA Parameter ParameterY
+	|
+	;
+
+Statements = Statement Statements
+	| 
+	;
+
+Statement = LocalVariableDeclaration
+	| BlockStatement
+	| IfStatement
+	| WhileStatement
+	| BreakStatement
+	| ReturnStatement
+	| ExpressionStatement
+	;
+
+LocalVariableDeclaration = TypeName ID SEMICOLON
+	;
+
+BlockStatement = LCURLY Statements RCURLY
+	;
+
+//Resolved Shift-Reduce conflict by selecting (ELSE: SHIFT; goto 84) 
+//over (ELSE: REDUCE IfStatement = IF LPAREN Expression RPAREN Statement) using precedence.
+IfStatement = IF LPAREN Expression RPAREN Statement //only a statement
+	| IF LPAREN Expression RPAREN Statement ELSE Statement
+	;
+
+WhileStatement = WHILE LPAREN Expression RPAREN Statement //only a statement
+	;
+
+BreakStatement = BREAK SEMICOLON
+	;
+
+//common prefix
+//shift-reduce conflict, resolved by favouring shift over reduce.
+ReturnStatement = RETURN SEMICOLON
+	| RETURN Expression SEMICOLON
+	;
+
+ExpressionStatement = Expression SEMICOLON
+	;
+
+Expression = Assignment
+	| RhsExpression 
+	;
+
+Assignment = LhsExpression EQL Expression
+	;
+
+/*
+//left recursion
+LhsExpression = ID
+	| LhsExpression LBRACKET Expression RBRACKET //Array Access
+	; 
+*/
+
+LhsExpression = ID LhsExpressionY
+	;
+
+LhsExpressionY = LBRACKET Expression RBRACKET LhsExpressionY
+	|
+	; 
+
+//common prefix
+//shift-reduce conflict, resolved by favouring shift over reduce.
+RhsExpression = ArithmeticExpression
+	| ArithmeticExpression ComparisonOperator ArithmeticExpression
+	;
+
+ComparisonOperator = EQEQ
+	| NEQ
+	| LT
+	| LEQ
+	| GT
+	| GEQ
+	;
+
+/*
+//left recursion
+ArithmeticExpression = ArithmeticExpression AdditiveOperator Term
+	| Term
+	;
+*/
+ArithmeticExpression = Term ArithmeticExpressionY
+	;
+
+ArithmeticExpressionY = AdditiveOperator Term ArithmeticExpressionY
+	|
+	;
+
+AdditiveOperator = PLUS
+	| MINUS
+	;
+
+/*
+//left recursion
+Term = Term MultiplicativeOperator Factor
+	| Factor
+	;
+*/
+
+Term = Factor TermY
+	;
+
+TermY = MultiplicativeOperator Factor TermY
+	|
+	;
+
+MultiplicativeOperator = TIMES
+	| DIV
+	| MOD
+	;
+
+Factor = MINUS Factor
+	| PrimaryFactor
+	;
+
+PrimaryFactor = LhsExpression
+	| FunctionCall
+	| ArrayExpression
+	| STRING_LITERAL
+	| INT_LITERAL
+	| Boolean
+	| LPAREN Expression RPAREN
+	;
+
+FunctionCall = ID LPAREN ExpressionListEmpty RPAREN
+	;
+
+ExpressionListEmpty = ExpressionList
+	|
+	;
+
+/*
+//left recursion
+ExpressionList = ExpressionList COMMA Expression
+	|Expression
+	;
+*/
+
+ExpressionList = Expression ExpressionListY
+	;
+
+ExpressionListY = COMMA Expression ExpressionListY
+	;
+
+ArrayExpression = LBRACKET ExpressionList RBRACKET
+	;
+
+/**/
+
+/* Dummy rule to make the lexer compile. Remove this once you have written all other rules. */	  
+Dummy = MODULE INT VOID IF ELSE WHILE RETURN BREAK BOOLEAN PUBLIC TRUE FALSE INT_LITERAL STRING_LITERAL ID TYPE IMPORT
+           PLUS MINUS TIMES DIV MOD EQEQ NEQ LEQ GEQ LT GT LBRACKET RPAREN COMMA RCURLY LCURLY SEMICOLON RBRACKET LPAREN EQL;
