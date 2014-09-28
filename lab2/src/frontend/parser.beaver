@@ -71,8 +71,8 @@ TypeName = PrimitiveType
 	;
 
 PrimitiveType = VOID
-	| Boolean
-	| INT_LITERAL
+	| BOOLEAN
+	| INT
 	;
 
 Boolean = TRUE
