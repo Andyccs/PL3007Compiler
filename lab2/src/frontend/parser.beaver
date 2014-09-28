@@ -82,8 +82,10 @@ Boolean = TRUE
 //Resolved Shift-Reduce conflict by selecting (LBRACKET: SHIFT; goto 148) 
 //over (LBRACKET: REDUCE TypeName = ID) using precedence.
 //LALR conflict
-ArrayType = TypeName LBRACKET RBRACKET 
-	;
+ArrayType	= 	ID LBRACKET RBRACKET
+			|	ArrayType LBRACKET RBRACKET
+			|	PrimitiveType LBRACKET RBRACKET
+			;
 
 Parameter = TypeName ID
 	;
