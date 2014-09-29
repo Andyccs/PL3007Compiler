@@ -97,6 +97,7 @@ ParameterList = ParameterList COMMA Parameter
 */
 
 ParameterList = Parameter ParameterY
+	|
 	;
 
 ParameterY = COMMA Parameter ParameterY
