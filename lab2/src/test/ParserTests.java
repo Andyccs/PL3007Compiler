@@ -37,4 +37,48 @@ public class ParserTests {
 	public void testEmptyModule() {
 		runtest("module Test { }");
 	}
+	
+	@Test
+	public void testFunctionCall(){
+		//test precondition
+		runtest("module Test{ public int function_name() {  } }");
+		
+		//test function call 
+		runtest("module Test{ public int function_name() { abc(); } }");
+		runtest("module Test{ public int function_name() { abc(a=1); } }");
+		runtest("module Test{ public int function_name() { abc(a=1,b=2); } }");		runtest("module Test{ public int function_name() { abc(a=1); } }");
+		runtest("module Test{ public int function_name() { abc(a,b); } }");
+		runtest("module Test{ public int function_name() { abc(1,2); } }");
+	}
+	
+	@Test
+	public void testArrayExpression(){
+		//test precondition
+		runtest("module Test{ public int function_name() {  } }");
+		
+		//test array expression 
+		runtest("module Test{ public int function_name() { []; } }",false);
+		runtest("module Test{ public int function_name() { [a=1]; } }");
+		runtest("module Test{ public int function_name() { [a=1,b=2]; } }");
+		runtest("module Test{ public int function_name() { [a]; } }");
+		runtest("module Test{ public int function_name() { [a,b]; } }");
+		runtest("module Test{ public int function_name() { [1]; } }");
+		runtest("module Test{ public int function_name() { [1,2]; } }");
+	}
+	
+	@Test
+	public void testBooleanLiteral(){
+		//test precondition
+		runtest("module Test{ public int function_name() {  } }");
+		
+		//start test
+		runtest("module Test{ public int function_name() { true; } }");
+		runtest("module Test{ public int function_name() { false; } }");
+	}
+	
+	@Test
+	public void testParenthesisExpression(){
+		//test precondition
+		runtest("module Test{ public int function_name() {  } }");
+	}
 }

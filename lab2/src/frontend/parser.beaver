@@ -75,10 +75,6 @@ PrimitiveType = VOID
 	| INT
 	;
 
-Boolean = TRUE
-	| FALSE
-	;
-
 //Resolved Shift-Reduce conflict by selecting (LBRACKET: SHIFT; goto 148) 
 //over (LBRACKET: REDUCE TypeName = ID) using precedence.
 //LALR conflict
@@ -228,6 +224,10 @@ PrimaryFactor = LhsExpression
 	| LPAREN Expression RPAREN
 	;
 
+Boolean = TRUE
+	| FALSE
+	;
+
 FunctionCall = ID LPAREN ExpressionListEmpty RPAREN
 	;
 
@@ -246,6 +246,7 @@ ExpressionList = Expression ExpressionListY
 	;
 
 ExpressionListY = COMMA Expression ExpressionListY
+	|
 	;
 
 ArrayExpression = LBRACKET ExpressionList RBRACKET
