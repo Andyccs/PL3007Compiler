@@ -144,4 +144,41 @@ public class ParserTests {
 		runtest("module Test{ public int function_name() { a=b=c=3; } }");
 		runtest("module Test{ public int function_name() { a=a()==true==false==123==-3; } }",false);
 	}
+
+	//yong
+	@Test
+	public void testLocalVariableDeclaration() {
+		runtest("module Test { int a; int[] b; String c;}");
+	}
+	
+	@Test
+	public void testBlockStatement() {
+		runtest("module Test { int a; int b; boolean c; public void testFunction() { if(a-b<1) {} while(c == true) {} while(c == true) {break;} if(c == true) {return;}} }");
+	}
+	
+	@Test
+	public void testIfStatement() {
+		runtest("module Test { int a; int b; boolean c; public void testFunction() { if(a-b<1) {} } }");
+	}
+	
+	
+	@Test
+	public void testWhileStatement() {
+		runtest("module Test { int a; int b; boolean c; public void testFunction() { while(c == true) {} } }");
+	}
+	
+	@Test
+	public void testBreakStatement() {
+		runtest("module Test { int a; int b; boolean c; public void testFunction() { while(c == true) {break;} } }");
+	}
+	
+	@Test
+	public void testReturnStatement() {
+		runtest("module Test { int a; int b; boolean c; public int testFunction() { if(c == true) {return;} } }");
+	}
+	
+	@Test
+	public void testExpressionStatement() {
+		runtest("module Test { int a; int b; boolean c; public int testFunction() { a == b; } }");
+	}
 }
