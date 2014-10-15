@@ -1,0 +1,17 @@
+<project name="Mobila" default="gen" basedir=".">
+	<taskdef name="jastadd" classname="jastadd.JastAddTask" classpath="lib/jastadd2.jar"/>
+
+	<target name="gen" depends="clean">
+		<jastadd package="ast" rewrite="false" novisitcheck="true" outdir="gen" debug="true" beaver="true">
+			<fileset dir="src/frontend">
+		    	<include name="**/*.ast"/>
+		      	<include name="**/*.jrag"/>
+		      	<include name="**/*.jadd"/>
+		    </fileset>
+		</jastadd>
+	</target>
+	
+	<target name="clean">
+		<delete dir="gen/ast"/>
+	</target>
+</project>
