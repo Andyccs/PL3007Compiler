@@ -10,7 +10,7 @@ import java.lang.reflect.Modifier;
 /**
  * @production TypeDeclaration : {@link Declaration} ::= <span class="component">&lt;Name:String&gt;</span> <span class="component">&lt;JavaType:String&gt;</span>;
  * @ast node
- * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/grammar.ast:13
+ * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/grammar.ast:13
  */
 public class TypeDeclaration extends Declaration implements Cloneable {
   /**
@@ -80,18 +80,11 @@ public class TypeDeclaration extends Declaration implements Cloneable {
   /**
    * @ast method 
    * @aspect Namecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/namecheck.jrag:64
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/namecheck.jrag:56
    */
   public void namecheck() {
-		/* TODO: check that there aren't multiple types with the same name (hint: use lookupType) */
-		
-		TypeDeclaration DuplicateType = lookupType(getName());
-		
-		if(DuplicateType != null && 
-		DuplicateType != this && 
-		DuplicateType.getParent()==this.getParent())
-		
-			error("The name " + DuplicateType + " has multiple types, please check your program.");
+		if(lookupType(getName()) != this)
+			error("Multiple declarations for type " + getName());
 	}
   /**
    * @ast method 
@@ -287,7 +280,7 @@ public class TypeDeclaration extends Declaration implements Cloneable {
   /**
    * @attribute inh
    * @aspect Namecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/namecheck.jrag:63
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/namecheck.jrag:55
    */
   @SuppressWarnings({"unchecked", "cast"})
   public TypeDeclaration lookupType(String name) {

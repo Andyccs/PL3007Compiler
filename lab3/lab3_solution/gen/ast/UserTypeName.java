@@ -10,7 +10,7 @@ import java.lang.reflect.Modifier;
 /**
  * @production UserTypeName : {@link TypeName} ::= <span class="component">&lt;Name:String&gt;</span>;
  * @ast node
- * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/grammar.ast:24
+ * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/grammar.ast:24
  */
 public class UserTypeName extends TypeName implements Cloneable {
   /**
@@ -88,13 +88,11 @@ public class UserTypeName extends TypeName implements Cloneable {
   /**
    * @ast method 
    * @aspect Namecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/namecheck.jrag:94
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/namecheck.jrag:72
    */
   public void namecheck() {
-		/* TODO: check that the type name can be resolved */
-		
-		TypeDeclaration type = lookupType(getName());
-		if (type == null)	error("Type name '" + getName() +  "' cannot be resolved ");
+		if(lookupType(getName()) == null)
+			error("Type " + getName() + " could not be resolved.");
 	}
   /**
    * @ast method 
@@ -206,7 +204,7 @@ public class UserTypeName extends TypeName implements Cloneable {
   protected TypeDescriptor getDescriptor_value;
   /** Determine type descriptor for type name. * @attribute syn
    * @aspect types
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/types.jrag:29
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/types.jrag:29
    */
   @SuppressWarnings({"unchecked", "cast"})
   public TypeDescriptor getDescriptor() {
@@ -236,7 +234,7 @@ public class UserTypeName extends TypeName implements Cloneable {
   /**
    * @attribute inh
    * @aspect names
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/names.jrag:117
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/names.jrag:78
    */
   @SuppressWarnings({"unchecked", "cast"})
   public TypeDeclaration lookupType(String name) {

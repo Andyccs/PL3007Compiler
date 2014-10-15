@@ -10,7 +10,7 @@ import java.lang.reflect.Modifier;
 /**
  * @production ReturnStmt : {@link Stmt} ::= <span class="component">[{@link Expr}]</span>;
  * @ast node
- * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/grammar.ast:34
+ * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/grammar.ast:34
  */
 public class ReturnStmt extends Stmt implements Cloneable {
   /**
@@ -78,7 +78,7 @@ public class ReturnStmt extends Stmt implements Cloneable {
   /**
    * @ast method 
    * @aspect Namecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/namecheck.jrag:124
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/namecheck.jrag:100
    */
   public void namecheck() {
 		if(hasExpr())
@@ -87,7 +87,7 @@ public class ReturnStmt extends Stmt implements Cloneable {
   /**
    * @ast method 
    * @aspect Typecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/typecheck.jrag:76
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/typecheck.jrag:76
    */
   public void typecheck() {
 		if(!hasExpr()) {

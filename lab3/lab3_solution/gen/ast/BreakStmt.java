@@ -10,7 +10,7 @@ import java.lang.reflect.Modifier;
 /**
  * @production BreakStmt : {@link Stmt};
  * @ast node
- * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/grammar.ast:35
+ * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/grammar.ast:35
  */
 public class BreakStmt extends Stmt implements Cloneable {
   /**
@@ -78,7 +78,7 @@ public class BreakStmt extends Stmt implements Cloneable {
   /**
    * @ast method 
    * @aspect Namecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/namecheck.jrag:108
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/namecheck.jrag:84
    */
   public void namecheck() {
 		if(getEnclosingLoop() == null)

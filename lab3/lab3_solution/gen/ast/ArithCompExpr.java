@@ -10,7 +10,7 @@ import java.lang.reflect.Modifier;
 /**
  * @production ArithCompExpr : {@link CompExpr};
  * @ast node
- * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/grammar.ast:57
+ * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/grammar.ast:57
  */
 public abstract class ArithCompExpr extends CompExpr implements Cloneable {
   /**
@@ -36,7 +36,7 @@ public abstract class ArithCompExpr extends CompExpr implements Cloneable {
   /**
    * @ast method 
    * @aspect Typecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/typecheck.jrag:154
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/typecheck.jrag:154
    */
   public void typecheck() {
 		super.typecheck();

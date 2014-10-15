@@ -10,7 +10,7 @@ import java.lang.reflect.Modifier;
 /**
  * @production BinaryExpr : {@link Expr} ::= <span class="component">Left:{@link Expr}</span> <span class="component">Right:{@link Expr}</span>;
  * @ast node
- * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/grammar.ast:45
+ * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/grammar.ast:45
  */
 public abstract class BinaryExpr extends Expr implements Cloneable {
   /**
@@ -42,7 +42,7 @@ public abstract class BinaryExpr extends Expr implements Cloneable {
   /**
    * @ast method 
    * @aspect Namecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/namecheck.jrag:162
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/namecheck.jrag:137
    */
   public void namecheck() {
 		getLeft().namecheck();
@@ -51,7 +51,7 @@ public abstract class BinaryExpr extends Expr implements Cloneable {
   /**
    * @ast method 
    * @aspect Typecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/typecheck.jrag:137
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/typecheck.jrag:137
    */
   public void typecheck() {
 		getLeft().typecheck();
@@ -171,7 +171,7 @@ public abstract class BinaryExpr extends Expr implements Cloneable {
   protected TypeDescriptor type_value;
   /** Type inference for expressions. * @attribute syn
    * @aspect types
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/types.jrag:46
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/types.jrag:46
    */
   @SuppressWarnings({"unchecked", "cast"})
   public TypeDescriptor type() {

@@ -10,7 +10,7 @@ import java.lang.reflect.Modifier;
 /**
  * @production NeqExpr : {@link CompExpr};
  * @ast node
- * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/grammar.ast:56
+ * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/grammar.ast:56
  */
 public class NeqExpr extends CompExpr implements Cloneable {
   /**

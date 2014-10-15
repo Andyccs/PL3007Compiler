@@ -10,7 +10,7 @@ import java.lang.reflect.Modifier;
 /**
  * @production VoidType : {@link TypeDescriptor};
  * @ast node
- * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/grammar.ast:74
+ * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/grammar.ast:74
  */
 public class VoidType extends TypeDescriptor implements Cloneable {
   /**
@@ -111,7 +111,7 @@ public class VoidType extends TypeDescriptor implements Cloneable {
   /**
    * @attribute syn
    * @aspect Typecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/typecheck.jrag:13
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/typecheck.jrag:13
    */
   public boolean isVoid() {
     if(isVoid_visited)

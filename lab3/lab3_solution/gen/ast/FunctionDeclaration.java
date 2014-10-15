@@ -10,7 +10,7 @@ import java.lang.reflect.Modifier;
 /**
  * @production FunctionDeclaration : {@link Declaration} ::= <span class="component">ReturnType:{@link TypeName}</span> <span class="component">&lt;Name:String&gt;</span> <span class="component">{@link Parameter}*</span> <span class="component">Body:{@link Block}</span>;
  * @ast node
- * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/grammar.ast:11
+ * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/grammar.ast:11
  */
 public class FunctionDeclaration extends Declaration implements Cloneable, Scope {
   /**
@@ -86,29 +86,21 @@ public class FunctionDeclaration extends Declaration implements Cloneable, Scope
   /**
    * @ast method 
    * @aspect Namecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/namecheck.jrag:41
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/namecheck.jrag:41
    */
   public void namecheck() {
-
-		/* TODO: check that there aren't multiple functions with the same name (hint: use lookupFunction) */
+		if(lookupFunction(getName()) != this)
+			error("Multiple declarations for function " + getName());
 		
 		getReturnType().namecheck();
 		for(Parameter parm : getParameters())
 			parm.namecheck();
 		getBody().namecheck();
-			
-		FunctionDeclaration DuplicateName = lookupFunction(getName());
-		
-		if(DuplicateName != this && 
-			DuplicateName != null){
-			
-			error("Duplicate declaration for function " + DuplicateName);
-		}
 	}
   /**
    * @ast method 
    * @aspect Typecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/typecheck.jrag:28
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/typecheck.jrag:28
    */
   public void typecheck() {
 		getReturnType().typecheck();
@@ -443,7 +435,7 @@ public class FunctionDeclaration extends Declaration implements Cloneable, Scope
   /**
    * @attribute inh
    * @aspect ASTUtil
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/astutil.jrag:29
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/astutil.jrag:29
    */
   @SuppressWarnings({"unchecked", "cast"})
   public Module getModule() {
@@ -462,7 +454,7 @@ public class FunctionDeclaration extends Declaration implements Cloneable, Scope
   /**
    * @attribute inh
    * @aspect Namecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/namecheck.jrag:40
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/namecheck.jrag:40
    */
   @SuppressWarnings({"unchecked", "cast"})
   public FunctionDeclaration lookupFunction(String name) {
@@ -484,7 +476,7 @@ public class FunctionDeclaration extends Declaration implements Cloneable, Scope
   /**
    * @attribute inh
    * @aspect names
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/names.jrag:17
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/names.jrag:17
    */
   @SuppressWarnings({"unchecked", "cast"})
   public VarDecl lookupVar(String name) {
@@ -504,7 +496,7 @@ public class FunctionDeclaration extends Declaration implements Cloneable, Scope
     return lookupVar_String_value;
   }
   /**
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/astutil.jrag:5
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/astutil.jrag:5
    * @apilevel internal
    */
   public WhileStmt Define_WhileStmt_getEnclosingLoop(ASTNode caller, ASTNode child) {
@@ -514,23 +506,22 @@ public class FunctionDeclaration extends Declaration implements Cloneable, Scope
     }
   }
   /**
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/names.jrag:43
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/names.jrag:31
    * @apilevel internal
    */
   public VarDecl Define_VarDecl_lookupVar(ASTNode caller, ASTNode child, String name) {
      { 
    int childIndex = this.getIndexOfChild(caller);
 {
-		for(Parameter parm : getParameters()){
+		for(Parameter parm : getParameters())
 			if(parm.getName().equals(name))
 				return parm;
-		}
 		return this.lookupVar(name);
 	}
     }
   }
   /**
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/typecheck.jrag:73
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/typecheck.jrag:73
    * @apilevel internal
    */
   public FunctionDeclaration Define_FunctionDeclaration_getFunction(ASTNode caller, ASTNode child) {
@@ -540,7 +531,7 @@ public class FunctionDeclaration extends Declaration implements Cloneable, Scope
     }
   }
   /**
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/astutil.jrag:26
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/astutil.jrag:26
    * @apilevel internal
    */
   public Scope Define_Scope_getScope(ASTNode caller, ASTNode child) {

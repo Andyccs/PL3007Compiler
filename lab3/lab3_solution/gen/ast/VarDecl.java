@@ -10,7 +10,7 @@ import java.lang.reflect.Modifier;
 /**
  * @production VarDecl : {@link ASTNode} ::= <span class="component">{@link TypeName}</span> <span class="component">&lt;Name:String&gt;</span>;
  * @ast node
- * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/grammar.ast:15
+ * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/grammar.ast:15
  */
 public class VarDecl extends ASTNode<ASTNode> implements Cloneable {
   /**
@@ -82,27 +82,20 @@ public class VarDecl extends ASTNode<ASTNode> implements Cloneable {
   /**
    * @ast method 
    * @aspect Namecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/namecheck.jrag:77
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/namecheck.jrag:62
    */
   public void namecheck() {
 		getTypeName().namecheck();
 		
-		/* TODO: check that there aren't multiple variables with the same name (hint: use lookupVar);
-		 *       however, only report an error if there are multiple variables within the same scope 
-		 *       (hint: use getScope) */
-		 	 
-		VarDecl DuplicateVariable = lookupVar(getName());
-		
-		if(DuplicateVariable != null && 
-		DuplicateVariable != this && 
-		DuplicateVariable.getScope() == this.getScope())
-		
-			error("Multiple variables have the same name '" + DuplicateVariable + "'");
+		// check that there aren't two variables with the same name in the same scope
+		VarDecl decl = lookupVar(getName());
+		if(decl != null && decl != this && decl.getScope() == this.getScope())
+			error("Multiple declarations for " + getName() + " in same scope");
 	}
   /**
    * @ast method 
    * @aspect Typecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/typecheck.jrag:40
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/typecheck.jrag:40
    */
   public void typecheck() {
 		getTypeName().typecheck();
@@ -246,7 +239,7 @@ public class VarDecl extends ASTNode<ASTNode> implements Cloneable {
   /**
    * @attribute inh
    * @aspect ASTUtil
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/astutil.jrag:25
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/astutil.jrag:25
    */
   @SuppressWarnings({"unchecked", "cast"})
   public Scope getScope() {
@@ -265,7 +258,7 @@ public class VarDecl extends ASTNode<ASTNode> implements Cloneable {
   /**
    * @attribute inh
    * @aspect Namecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/namecheck.jrag:76
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/namecheck.jrag:61
    */
   @SuppressWarnings({"unchecked", "cast"})
   public VarDecl lookupVar(String name) {

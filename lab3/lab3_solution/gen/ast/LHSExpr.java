@@ -10,7 +10,7 @@ import java.lang.reflect.Modifier;
 /**
  * @production LHSExpr : {@link Expr};
  * @ast node
- * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/grammar.ast:39
+ * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/grammar.ast:39
  */
 public abstract class LHSExpr extends Expr implements Cloneable {
   /**

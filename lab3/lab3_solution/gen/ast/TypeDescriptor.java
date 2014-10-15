@@ -10,7 +10,7 @@ import java.lang.reflect.Modifier;
 /**
  * @production TypeDescriptor : {@link ASTNode};
  * @ast node
- * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/grammar.ast:71
+ * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/grammar.ast:71
  */
 public abstract class TypeDescriptor extends ASTNode<ASTNode> implements Cloneable {
   /**
@@ -49,7 +49,7 @@ public abstract class TypeDescriptor extends ASTNode<ASTNode> implements Cloneab
   }
   /** Singleton instances of types int, boolean and void. * @ast method 
    * @aspect types
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/types.jrag:4
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/types.jrag:4
    */
   
 	/** Singleton instances of types int, boolean and void. */
@@ -57,20 +57,20 @@ public abstract class TypeDescriptor extends ASTNode<ASTNode> implements Cloneab
   /**
    * @ast method 
    * @aspect types
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/types.jrag:5
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/types.jrag:5
    */
   
 	public static final BooleanType BOOLEAN = new BooleanType();
   /**
    * @ast method 
    * @aspect types
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/types.jrag:6
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/types.jrag:6
    */
   
 	public static final VoidType VOID = new VoidType();
   /** Type descriptors for Java types. * @ast method 
    * @aspect types
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/types.jrag:12
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/types.jrag:12
    */
   
 
@@ -79,7 +79,7 @@ public abstract class TypeDescriptor extends ASTNode<ASTNode> implements Cloneab
   /**
    * @ast method 
    * @aspect types
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/types.jrag:13
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/types.jrag:13
    */
   public static final TypeDescriptor forJavaType(String name) {
 		TypeDescriptor desc = javaTypeDescriptors.get(name);
@@ -121,7 +121,7 @@ public abstract class TypeDescriptor extends ASTNode<ASTNode> implements Cloneab
   /**
    * @attribute syn
    * @aspect Typecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/typecheck.jrag:4
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/typecheck.jrag:4
    */
   public boolean isArrayType() {
     if(isArrayType_visited)
@@ -139,7 +139,7 @@ public abstract class TypeDescriptor extends ASTNode<ASTNode> implements Cloneab
   /**
    * @attribute syn
    * @aspect Typecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/typecheck.jrag:7
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/typecheck.jrag:7
    */
   public boolean isBoolean() {
     if(isBoolean_visited)
@@ -157,7 +157,7 @@ public abstract class TypeDescriptor extends ASTNode<ASTNode> implements Cloneab
   /**
    * @attribute syn
    * @aspect Typecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/typecheck.jrag:10
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/typecheck.jrag:10
    */
   public boolean isNumeric() {
     if(isNumeric_visited)
@@ -175,7 +175,7 @@ public abstract class TypeDescriptor extends ASTNode<ASTNode> implements Cloneab
   /**
    * @attribute syn
    * @aspect Typecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/typecheck.jrag:13
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/typecheck.jrag:13
    */
   public boolean isVoid() {
     if(isVoid_visited)
@@ -200,7 +200,7 @@ public abstract class TypeDescriptor extends ASTNode<ASTNode> implements Cloneab
   protected ArrayType arrayType_value;
   /** Lazily create array type for an existing type. * @attribute syn
    * @aspect types
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/types.jrag:9
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/types.jrag:9
    */
   @SuppressWarnings({"unchecked", "cast"})
   public ArrayType arrayType() {

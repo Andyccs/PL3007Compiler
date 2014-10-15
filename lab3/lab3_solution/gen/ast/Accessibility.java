@@ -10,7 +10,7 @@ import java.lang.reflect.Modifier;
 /**
  * @production Accessibility : {@link ASTNode} ::= <span class="component">&lt;Public:Boolean&gt;</span>;
  * @ast node
- * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/grammar.ast:9
+ * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/grammar.ast:9
  */
 public class Accessibility extends ASTNode<ASTNode> implements Cloneable {
   /**

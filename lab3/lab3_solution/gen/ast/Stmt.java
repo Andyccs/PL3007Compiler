@@ -10,7 +10,7 @@ import java.lang.reflect.Modifier;
 /**
  * @production Stmt : {@link ASTNode};
  * @ast node
- * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/grammar.ast:27
+ * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/grammar.ast:27
  */
 public abstract class Stmt extends ASTNode<ASTNode> implements Cloneable {
   /**
@@ -40,13 +40,13 @@ public abstract class Stmt extends ASTNode<ASTNode> implements Cloneable {
   /**
    * @ast method 
    * @aspect Namecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/namecheck.jrag:101
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/namecheck.jrag:77
    */
   public abstract void namecheck();
   /**
    * @ast method 
    * @aspect Typecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/typecheck.jrag:46
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/typecheck.jrag:46
    */
   public void typecheck() {}
   /**
@@ -83,7 +83,7 @@ public abstract class Stmt extends ASTNode<ASTNode> implements Cloneable {
   /**
    * @attribute inh
    * @aspect ASTUtil
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/astutil.jrag:4
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/astutil.jrag:4
    */
   @SuppressWarnings({"unchecked", "cast"})
   public WhileStmt getEnclosingLoop() {
@@ -102,7 +102,7 @@ public abstract class Stmt extends ASTNode<ASTNode> implements Cloneable {
   /**
    * @attribute inh
    * @aspect Typecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/typecheck.jrag:72
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/typecheck.jrag:72
    */
   @SuppressWarnings({"unchecked", "cast"})
   public FunctionDeclaration getFunction() {

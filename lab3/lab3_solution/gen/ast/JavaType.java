@@ -10,7 +10,7 @@ import java.lang.reflect.Modifier;
 /**
  * @production JavaType : {@link TypeDescriptor} ::= <span class="component">&lt;Name:String&gt;</span>;
  * @ast node
- * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/grammar.ast:76
+ * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/grammar.ast:76
  */
 public class JavaType extends TypeDescriptor implements Cloneable {
   /**

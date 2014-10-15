@@ -10,7 +10,7 @@ import java.lang.reflect.Modifier;
 /**
  * @production VarName : {@link LHSExpr} ::= <span class="component">&lt;Name:String&gt;</span>;
  * @ast node
- * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/grammar.ast:40
+ * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/grammar.ast:40
  */
 public class VarName extends LHSExpr implements Cloneable {
   /**
@@ -94,17 +94,16 @@ public class VarName extends LHSExpr implements Cloneable {
   /**
    * @ast method 
    * @aspect Namecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/namecheck.jrag:140
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/namecheck.jrag:116
    */
   public void namecheck() {
-		/* TODO: check that the variable can be resolved */
-		
-		if(decl() == null)	error("The variable '" + getName() + "' cannot be resolved ");
+		if(decl() == null)
+			error("Variable " + getName() + " cannot be resolved.");
 	}
   /**
    * @ast method 
    * @aspect Typecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/typecheck.jrag:99
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/typecheck.jrag:99
    */
   public void typecheck() {
 	}
@@ -219,7 +218,7 @@ public class VarName extends LHSExpr implements Cloneable {
   /**
    * @attribute syn
    * @aspect names
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/names.jrag:12
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/names.jrag:12
    */
   @SuppressWarnings({"unchecked", "cast"})
   public VarDecl decl() {
@@ -252,7 +251,7 @@ public class VarName extends LHSExpr implements Cloneable {
   protected TypeDescriptor type_value;
   /** Type inference for expressions. * @attribute syn
    * @aspect types
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/types.jrag:41
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/types.jrag:41
    */
   @SuppressWarnings({"unchecked", "cast"})
   public TypeDescriptor type() {
@@ -279,7 +278,7 @@ public class VarName extends LHSExpr implements Cloneable {
   /**
    * @attribute inh
    * @aspect names
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/names.jrag:15
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/names.jrag:15
    */
   @SuppressWarnings({"unchecked", "cast"})
   public VarDecl lookupVar(String name) {

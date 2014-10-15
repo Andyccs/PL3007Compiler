@@ -10,7 +10,7 @@ import java.lang.reflect.Modifier;
 /**
  * @production FunctionName : {@link ASTNode} ::= <span class="component">&lt;Name:String&gt;</span>;
  * @ast node
- * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/grammar.ast:69
+ * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/grammar.ast:69
  */
 public class FunctionName extends ASTNode<ASTNode> implements Cloneable {
   /**
@@ -84,12 +84,11 @@ public class FunctionName extends ASTNode<ASTNode> implements Cloneable {
   /**
    * @ast method 
    * @aspect Namecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/namecheck.jrag:178
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/namecheck.jrag:153
    */
   public void namecheck() {
-		/* TODO: check that the function can be resolved */
-		
-		if(decl() == null)	error("The function '" + getName() + "()'cannot be resolved ");
+		if(decl() == null)
+			error("Function " + getName() + " cannot be resolved.");
 	}
   /**
    * @ast method 
@@ -194,7 +193,7 @@ public class FunctionName extends ASTNode<ASTNode> implements Cloneable {
   /**
    * @attribute syn
    * @aspect names
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/names.jrag:165
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/names.jrag:103
    */
   public FunctionDeclaration decl() {
     if(decl_visited)
@@ -213,7 +212,7 @@ public class FunctionName extends ASTNode<ASTNode> implements Cloneable {
   /**
    * @attribute inh
    * @aspect names
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/names.jrag:167
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/names.jrag:105
    */
   @SuppressWarnings({"unchecked", "cast"})
   public FunctionDeclaration lookupFunction(String name) {

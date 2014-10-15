@@ -10,7 +10,7 @@ import java.lang.reflect.Modifier;
 /**
  * @production VarDeclStmt : {@link Stmt} ::= <span class="component">{@link VarDecl}</span>;
  * @ast node
- * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/grammar.ast:30
+ * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/grammar.ast:30
  */
 public class VarDeclStmt extends Stmt implements Cloneable {
   /**
@@ -78,7 +78,7 @@ public class VarDeclStmt extends Stmt implements Cloneable {
   /**
    * @ast method 
    * @aspect Namecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/namecheck.jrag:129
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/namecheck.jrag:105
    */
   public void namecheck() {
 		getVarDecl().namecheck();
@@ -86,7 +86,7 @@ public class VarDeclStmt extends Stmt implements Cloneable {
   /**
    * @ast method 
    * @aspect Typecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/typecheck.jrag:48
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/typecheck.jrag:48
    */
   public void typecheck() {
 		getVarDecl().typecheck();

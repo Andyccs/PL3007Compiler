@@ -10,7 +10,7 @@ import java.lang.reflect.Modifier;
 /**
  * @production ArrayType : {@link TypeDescriptor} ::= <span class="component">ElementType:{@link TypeDescriptor}</span>;
  * @ast node
- * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/grammar.ast:75
+ * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/grammar.ast:75
  */
 public class ArrayType extends TypeDescriptor implements Cloneable {
   /**
@@ -150,7 +150,7 @@ public class ArrayType extends TypeDescriptor implements Cloneable {
   /**
    * @attribute syn
    * @aspect Typecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/typecheck.jrag:4
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/typecheck.jrag:4
    */
   public boolean isArrayType() {
     if(isArrayType_visited)

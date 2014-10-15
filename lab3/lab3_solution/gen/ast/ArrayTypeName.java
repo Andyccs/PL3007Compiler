@@ -10,7 +10,7 @@ import java.lang.reflect.Modifier;
 /**
  * @production ArrayTypeName : {@link TypeName} ::= <span class="component">ElementType:{@link TypeName}</span>;
  * @ast node
- * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/grammar.ast:23
+ * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/grammar.ast:23
  */
 public class ArrayTypeName extends TypeName implements Cloneable {
   /**
@@ -84,7 +84,7 @@ public class ArrayTypeName extends TypeName implements Cloneable {
   /**
    * @ast method 
    * @aspect Typecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/typecheck.jrag:183
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/typecheck.jrag:183
    */
   public void typecheck() {
 		if(getElementType().getDescriptor().isVoid())
@@ -170,7 +170,7 @@ public class ArrayTypeName extends TypeName implements Cloneable {
   protected TypeDescriptor getDescriptor_value;
   /** Determine type descriptor for type name. * @attribute syn
    * @aspect types
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/types.jrag:25
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/types.jrag:25
    */
   @SuppressWarnings({"unchecked", "cast"})
   public TypeDescriptor getDescriptor() {

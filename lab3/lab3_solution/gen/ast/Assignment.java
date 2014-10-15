@@ -10,7 +10,7 @@ import java.lang.reflect.Modifier;
 /**
  * @production Assignment : {@link Expr} ::= <span class="component">LHS:{@link LHSExpr}</span> <span class="component">RHS:{@link Expr}</span>;
  * @ast node
- * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/grammar.ast:44
+ * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/grammar.ast:44
  */
 public class Assignment extends Expr implements Cloneable {
   /**
@@ -84,7 +84,7 @@ public class Assignment extends Expr implements Cloneable {
   /**
    * @ast method 
    * @aspect Namecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/namecheck.jrag:157
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/namecheck.jrag:132
    */
   public void namecheck() {
 		getLHS().namecheck();
@@ -93,7 +93,7 @@ public class Assignment extends Expr implements Cloneable {
   /**
    * @ast method 
    * @aspect Typecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/typecheck.jrag:129
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/typecheck.jrag:129
    */
   public void typecheck() {
 		getLHS().typecheck();
@@ -213,7 +213,7 @@ public class Assignment extends Expr implements Cloneable {
   protected TypeDescriptor type_value;
   /** Type inference for expressions. * @attribute syn
    * @aspect types
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/types.jrag:45
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/types.jrag:45
    */
   @SuppressWarnings({"unchecked", "cast"})
   public TypeDescriptor type() {

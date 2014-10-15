@@ -10,7 +10,7 @@ import java.lang.reflect.Modifier;
 /**
  * @production Program : {@link ASTNode} ::= <span class="component">{@link Module}*</span>;
  * @ast node
- * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/grammar.ast:1
+ * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/grammar.ast:1
  */
 public class Program extends ASTNode<ASTNode> implements Cloneable {
   /**
@@ -82,14 +82,14 @@ public class Program extends ASTNode<ASTNode> implements Cloneable {
   /**
    * @ast method 
    * @aspect ASTUtil
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/astutil.jrag:14
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/astutil.jrag:14
    */
   protected Program getProgram() {
 		return this;
 	}
   /** Compiler errors are stored in a list at the program root. * @ast method 
    * @aspect Errors
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/errors.jrag:23
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/errors.jrag:23
    */
   
 
@@ -97,21 +97,21 @@ public class Program extends ASTNode<ASTNode> implements Cloneable {
 	private ArrayList<CompilerError> errors = new ArrayList<CompilerError>();
   /** Enter a new error into the list. * @ast method 
    * @aspect Errors
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/errors.jrag:26
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/errors.jrag:26
    */
   protected void error(String msg, int line, int column) {
 		errors.add(new CompilerError(msg, line, column));
 	}
   /** Provide access to the list of compiler errors. * @ast method 
    * @aspect Errors
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/errors.jrag:36
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/errors.jrag:36
    */
   public Iterable<CompilerError> getErrors() {
 		return errors;
 	}
   /** Check whether any errors have been reported. * @ast method 
    * @aspect Errors
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/errors.jrag:41
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/errors.jrag:41
    */
   public boolean hasErrors() {
 		return !errors.isEmpty();
@@ -119,7 +119,7 @@ public class Program extends ASTNode<ASTNode> implements Cloneable {
   /**
    * @ast method 
    * @aspect Namecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/namecheck.jrag:7
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/namecheck.jrag:7
    */
   public void namecheck() {
 		// check for name clashes on modules
@@ -133,7 +133,7 @@ public class Program extends ASTNode<ASTNode> implements Cloneable {
   /**
    * @ast method 
    * @aspect Typecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/typecheck.jrag:16
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/typecheck.jrag:16
    */
   public void typecheck() {
 		for(Module module : getModules())
@@ -310,7 +310,7 @@ public class Program extends ASTNode<ASTNode> implements Cloneable {
   /**
    * @attribute syn
    * @aspect names
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/names.jrag:107
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/names.jrag:68
    */
   @SuppressWarnings({"unchecked", "cast"})
   public Module resolveModule(String qualifiedName) {

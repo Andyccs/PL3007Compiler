@@ -10,7 +10,7 @@ import java.lang.reflect.Modifier;
 /**
  * @production Call : {@link Expr} ::= <span class="component">Callee:{@link FunctionName}</span> <span class="component">Argument:{@link Expr}*</span>;
  * @ast node
- * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/grammar.ast:43
+ * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/grammar.ast:43
  */
 public class Call extends Expr implements Cloneable {
   /**
@@ -90,7 +90,7 @@ public class Call extends Expr implements Cloneable {
   /**
    * @ast method 
    * @aspect Namecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/namecheck.jrag:151
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/namecheck.jrag:126
    */
   public void namecheck() {
 		getCallee().namecheck();
@@ -100,7 +100,7 @@ public class Call extends Expr implements Cloneable {
   /**
    * @ast method 
    * @aspect Typecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/typecheck.jrag:114
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/typecheck.jrag:114
    */
   public void typecheck() {
 		FunctionDeclaration callee = getCallTarget();
@@ -319,7 +319,7 @@ public class Call extends Expr implements Cloneable {
   /**
    * @attribute syn
    * @aspect names
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/names.jrag:212
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/names.jrag:126
    */
   @SuppressWarnings({"unchecked", "cast"})
   public FunctionDeclaration getCallTarget() {
@@ -352,7 +352,7 @@ public class Call extends Expr implements Cloneable {
   protected TypeDescriptor type_value;
   /** Type inference for expressions. * @attribute syn
    * @aspect types
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/types.jrag:44
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/types.jrag:44
    */
   @SuppressWarnings({"unchecked", "cast"})
   public TypeDescriptor type() {

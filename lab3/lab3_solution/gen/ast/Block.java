@@ -10,7 +10,7 @@ import java.lang.reflect.Modifier;
 /**
  * @production Block : {@link Stmt} ::= <span class="component">{@link Stmt}*</span>;
  * @ast node
- * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/grammar.ast:31
+ * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/grammar.ast:31
  */
 public class Block extends Stmt implements Cloneable, Scope {
   /**
@@ -82,7 +82,7 @@ public class Block extends Stmt implements Cloneable, Scope {
   /**
    * @ast method 
    * @aspect Namecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/namecheck.jrag:103
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/namecheck.jrag:79
    */
   public void namecheck() {
 		for(Stmt stmt : getStmts())
@@ -91,7 +91,7 @@ public class Block extends Stmt implements Cloneable, Scope {
   /**
    * @ast method 
    * @aspect Typecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/typecheck.jrag:52
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/typecheck.jrag:52
    */
   public void typecheck() {
 		for(Stmt stmt : getStmts())
@@ -262,7 +262,7 @@ public class Block extends Stmt implements Cloneable, Scope {
   /**
    * @attribute inh
    * @aspect names
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/names.jrag:16
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/names.jrag:16
    */
   @SuppressWarnings({"unchecked", "cast"})
   public VarDecl lookupVar(String name) {
@@ -282,32 +282,20 @@ public class Block extends Stmt implements Cloneable, Scope {
     return lookupVar_String_value;
   }
   /**
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/names.jrag:20
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/names.jrag:20
    * @apilevel internal
    */
   public VarDecl Define_VarDecl_lookupVar(ASTNode caller, ASTNode child, String name) {
     if(caller == getStmtListNoTransform()) { 
    int j = caller.getIndexOfChild(child);
 {
-		/* TODO: Implement lookup of a variable within a block.
-		 * 
-		 *       Note that only variables declared before statement j should be taken
-		 *       into account. If the variable is not found within this block, lookup
-		 *       should continue with the parent node (as shown in the lecture).
-		 */
-		 
-		 for (int c = 0; c < j; ++c)
-		 {
-		 	Stmt statment = this.getStmt(c);
-		 	
-			if (statment instanceof VarDeclStmt) 
-			{
-				VarDecl decl = ((VarDeclStmt) statment).getVarDecl();
-				if (decl.getName().equals(name))
-						return decl;
-		 	}
-		 }
-		 return this.lookupVar(name);
+		for(int i=0;i<j;++i)
+			if(getStmt(i) instanceof VarDeclStmt) {
+				VarDecl vd = ((VarDeclStmt)getStmt(i)).getVarDecl();
+				if(vd.getName().equals(name))
+					return vd;
+			}
+		return this.lookupVar(name);
 	}
 }
     else {    if(getParent() == null) throw new RuntimeException("Trying to evaluate attribute in subtree not attached to main tree");
@@ -315,7 +303,7 @@ public class Block extends Stmt implements Cloneable, Scope {
     }
   }
   /**
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/astutil.jrag:26
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/astutil.jrag:26
    * @apilevel internal
    */
   public Scope Define_Scope_getScope(ASTNode caller, ASTNode child) {

@@ -10,7 +10,7 @@ import java.lang.reflect.Modifier;
 /**
  * @production Import : {@link ASTNode} ::= <span class="component">&lt;Package:String&gt;</span> <span class="component">&lt;Name:String&gt;</span>;
  * @ast node
- * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/grammar.ast:5
+ * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/grammar.ast:5
  */
 public class Import extends ASTNode<ASTNode> implements Cloneable {
   /**
@@ -92,7 +92,7 @@ public class Import extends ASTNode<ASTNode> implements Cloneable {
   /**
    * @ast method 
    * @aspect Namecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/namecheck.jrag:31
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/namecheck.jrag:31
    */
   public void namecheck() {
 		if(resolve() == null)
@@ -268,7 +268,7 @@ public class Import extends ASTNode<ASTNode> implements Cloneable {
   /**
    * @attribute syn
    * @aspect names
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/names.jrag:8
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/names.jrag:8
    */
   @SuppressWarnings({"unchecked", "cast"})
   public String getQualifiedName() {
@@ -302,7 +302,7 @@ public class Import extends ASTNode<ASTNode> implements Cloneable {
   /**
    * @attribute syn
    * @aspect names
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/names.jrag:114
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/names.jrag:75
    */
   @SuppressWarnings({"unchecked", "cast"})
   public Module resolve() {
@@ -328,7 +328,7 @@ public class Import extends ASTNode<ASTNode> implements Cloneable {
   /**
    * @attribute inh
    * @aspect Namecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/namecheck.jrag:30
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/namecheck.jrag:30
    */
   @SuppressWarnings({"unchecked", "cast"})
   public Module getModule() {

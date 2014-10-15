@@ -10,7 +10,7 @@ import java.lang.reflect.Modifier;
 /**
  * @production TypeName : {@link ASTNode};
  * @ast node
- * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/grammar.ast:19
+ * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/grammar.ast:19
  */
 public abstract class TypeName extends ASTNode<ASTNode> implements Cloneable {
   /**
@@ -36,13 +36,13 @@ public abstract class TypeName extends ASTNode<ASTNode> implements Cloneable {
   /**
    * @ast method 
    * @aspect Namecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/namecheck.jrag:93
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/namecheck.jrag:71
    */
   public void namecheck() {}
   /**
    * @ast method 
    * @aspect Runtime
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/runtime.jrag:3
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/runtime.jrag:3
    */
   public static TypeName forClass(Class<?> klass) {
 		String name = klass.getCanonicalName();
@@ -58,7 +58,7 @@ public abstract class TypeName extends ASTNode<ASTNode> implements Cloneable {
   /**
    * @ast method 
    * @aspect Typecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/typecheck.jrag:182
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/typecheck.jrag:182
    */
   public void typecheck() {}
   /**
@@ -90,7 +90,7 @@ public abstract class TypeName extends ASTNode<ASTNode> implements Cloneable {
   }
   /** Determine type descriptor for type name. * @attribute syn
    * @aspect types
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/types.jrag:21
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/types.jrag:21
    */
   @SuppressWarnings({"unchecked", "cast"})
   public abstract TypeDescriptor getDescriptor();

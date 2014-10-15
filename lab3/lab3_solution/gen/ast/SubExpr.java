@@ -10,7 +10,7 @@ import java.lang.reflect.Modifier;
 /**
  * @production SubExpr : {@link BinaryExpr};
  * @ast node
- * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/grammar.ast:47
+ * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/grammar.ast:47
  */
 public class SubExpr extends BinaryExpr implements Cloneable {
   /**

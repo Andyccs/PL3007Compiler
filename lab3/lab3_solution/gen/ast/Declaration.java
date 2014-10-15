@@ -10,7 +10,7 @@ import java.lang.reflect.Modifier;
 /**
  * @production Declaration : {@link ASTNode} ::= <span class="component">{@link Accessibility}</span>;
  * @ast node
- * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/grammar.ast:7
+ * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/grammar.ast:7
  */
 public abstract class Declaration extends ASTNode<ASTNode> implements Cloneable {
   /**
@@ -38,13 +38,13 @@ public abstract class Declaration extends ASTNode<ASTNode> implements Cloneable 
   /**
    * @ast method 
    * @aspect Namecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/namecheck.jrag:38
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/namecheck.jrag:38
    */
   public abstract void namecheck();
   /**
    * @ast method 
    * @aspect Typecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/typecheck.jrag:26
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/typecheck.jrag:26
    */
   public void typecheck() {}
   /**
@@ -120,7 +120,7 @@ public abstract class Declaration extends ASTNode<ASTNode> implements Cloneable 
   /**
    * @attribute syn
    * @aspect names
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/names.jrag:214
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/names.jrag:128
    */
   public boolean isPublic() {
     if(isPublic_visited)

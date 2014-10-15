@@ -10,7 +10,7 @@ import java.lang.reflect.Modifier;
 /**
  * @production UnaryExpr : {@link Expr} ::= <span class="component">Operand:{@link Expr}</span>;
  * @ast node
- * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/grammar.ast:51
+ * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/grammar.ast:51
  */
 public abstract class UnaryExpr extends Expr implements Cloneable {
   /**
@@ -36,7 +36,7 @@ public abstract class UnaryExpr extends Expr implements Cloneable {
   /**
    * @ast method 
    * @aspect Namecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/namecheck.jrag:167
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/namecheck.jrag:142
    */
   public void namecheck() {
 		getOperand().namecheck();
@@ -44,7 +44,7 @@ public abstract class UnaryExpr extends Expr implements Cloneable {
   /**
    * @ast method 
    * @aspect Typecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/typecheck.jrag:160
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/typecheck.jrag:160
    */
   public void typecheck() {
 		getOperand().typecheck();

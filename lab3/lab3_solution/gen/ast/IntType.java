@@ -10,7 +10,7 @@ import java.lang.reflect.Modifier;
 /**
  * @production IntType : {@link TypeDescriptor};
  * @ast node
- * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/grammar.ast:72
+ * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/grammar.ast:72
  */
 public class IntType extends TypeDescriptor implements Cloneable {
   /**
@@ -111,7 +111,7 @@ public class IntType extends TypeDescriptor implements Cloneable {
   /**
    * @attribute syn
    * @aspect Typecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/typecheck.jrag:10
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/typecheck.jrag:10
    */
   public boolean isNumeric() {
     if(isNumeric_visited)

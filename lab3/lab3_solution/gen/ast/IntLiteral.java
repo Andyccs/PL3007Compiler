@@ -10,7 +10,7 @@ import java.lang.reflect.Modifier;
 /**
  * @production IntLiteral : {@link Literal} ::= <span class="component">&lt;Value:Integer&gt;</span>;
  * @ast node
- * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/grammar.ast:65
+ * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/grammar.ast:65
  */
 public class IntLiteral extends Literal implements Cloneable {
   /**
@@ -159,7 +159,7 @@ public class IntLiteral extends Literal implements Cloneable {
   protected TypeDescriptor type_value;
   /** Type inference for expressions. * @attribute syn
    * @aspect types
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/types.jrag:50
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/types.jrag:50
    */
   @SuppressWarnings({"unchecked", "cast"})
   public TypeDescriptor type() {

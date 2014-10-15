@@ -10,7 +10,7 @@ import java.lang.reflect.Modifier;
 /**
  * @production ArrayLiteral : {@link Literal} ::= <span class="component">Element:{@link Expr}*</span>;
  * @ast node
- * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/grammar.ast:67
+ * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/grammar.ast:67
  */
 public class ArrayLiteral extends Literal implements Cloneable {
   /**
@@ -84,7 +84,7 @@ public class ArrayLiteral extends Literal implements Cloneable {
   /**
    * @ast method 
    * @aspect Namecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/namecheck.jrag:173
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/namecheck.jrag:148
    */
   public void namecheck() {
 		for(Expr element : getElements())
@@ -93,7 +93,7 @@ public class ArrayLiteral extends Literal implements Cloneable {
   /**
    * @ast method 
    * @aspect Typecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/typecheck.jrag:168
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/typecheck.jrag:168
    */
   public void typecheck() {
 		if(getNumElement() == 0) {
@@ -279,7 +279,7 @@ public class ArrayLiteral extends Literal implements Cloneable {
   protected TypeDescriptor type_value;
   /** Type inference for expressions. * @attribute syn
    * @aspect types
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/types.jrag:52
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/types.jrag:52
    */
   @SuppressWarnings({"unchecked", "cast"})
   public TypeDescriptor type() {

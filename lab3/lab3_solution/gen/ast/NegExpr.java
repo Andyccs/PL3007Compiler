@@ -10,7 +10,7 @@ import java.lang.reflect.Modifier;
 /**
  * @production NegExpr : {@link UnaryExpr};
  * @ast node
- * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/grammar.ast:52
+ * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/grammar.ast:52
  */
 public class NegExpr extends UnaryExpr implements Cloneable {
   /**
@@ -161,7 +161,7 @@ public class NegExpr extends UnaryExpr implements Cloneable {
   protected TypeDescriptor type_value;
   /** Type inference for expressions. * @attribute syn
    * @aspect types
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/types.jrag:48
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/types.jrag:48
    */
   @SuppressWarnings({"unchecked", "cast"})
   public TypeDescriptor type() {

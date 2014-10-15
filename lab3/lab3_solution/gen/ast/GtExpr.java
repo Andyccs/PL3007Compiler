@@ -10,7 +10,7 @@ import java.lang.reflect.Modifier;
 /**
  * @production GtExpr : {@link ArithCompExpr};
  * @ast node
- * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/grammar.ast:59
+ * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/grammar.ast:59
  */
 public class GtExpr extends ArithCompExpr implements Cloneable {
   /**

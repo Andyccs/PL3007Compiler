@@ -10,7 +10,7 @@ import java.lang.reflect.Modifier;
 /**
  * @production BooleanType : {@link TypeDescriptor};
  * @ast node
- * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/grammar.ast:73
+ * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/grammar.ast:73
  */
 public class BooleanType extends TypeDescriptor implements Cloneable {
   /**
@@ -111,7 +111,7 @@ public class BooleanType extends TypeDescriptor implements Cloneable {
   /**
    * @attribute syn
    * @aspect Typecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/typecheck.jrag:7
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/typecheck.jrag:7
    */
   public boolean isBoolean() {
     if(isBoolean_visited)

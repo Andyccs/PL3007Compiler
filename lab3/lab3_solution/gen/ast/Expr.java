@@ -10,7 +10,7 @@ import java.lang.reflect.Modifier;
 /**
  * @production Expr : {@link ASTNode};
  * @ast node
- * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/grammar.ast:37
+ * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/grammar.ast:37
  */
 public abstract class Expr extends ASTNode<ASTNode> implements Cloneable {
   /**
@@ -36,13 +36,13 @@ public abstract class Expr extends ASTNode<ASTNode> implements Cloneable {
   /**
    * @ast method 
    * @aspect Namecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/namecheck.jrag:138
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/namecheck.jrag:114
    */
   public abstract void namecheck();
   /**
    * @ast method 
    * @aspect Typecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/typecheck.jrag:97
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/typecheck.jrag:97
    */
   public abstract void typecheck();
   /**
@@ -74,7 +74,7 @@ public abstract class Expr extends ASTNode<ASTNode> implements Cloneable {
   }
   /** Type inference for expressions. * @attribute syn
    * @aspect types
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/types.jrag:39
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/types.jrag:39
    */
   @SuppressWarnings({"unchecked", "cast"})
   public abstract TypeDescriptor type();

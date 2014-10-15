@@ -10,7 +10,7 @@ import java.lang.reflect.Modifier;
 /**
  * @production FieldDeclaration : {@link Declaration} ::= <span class="component">{@link VarDecl}</span>;
  * @ast node
- * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/grammar.ast:12
+ * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/grammar.ast:12
  */
 public class FieldDeclaration extends Declaration implements Cloneable {
   /**
@@ -78,7 +78,7 @@ public class FieldDeclaration extends Declaration implements Cloneable {
   /**
    * @ast method 
    * @aspect Namecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/namecheck.jrag:59
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/namecheck.jrag:51
    */
   public void namecheck() {
 		getVarDecl().namecheck();
@@ -86,7 +86,7 @@ public class FieldDeclaration extends Declaration implements Cloneable {
   /**
    * @ast method 
    * @aspect Typecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/typecheck.jrag:35
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/typecheck.jrag:35
    */
   public void typecheck() {
 		getVarDecl().typecheck();

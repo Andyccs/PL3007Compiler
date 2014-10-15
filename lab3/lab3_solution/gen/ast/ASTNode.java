@@ -76,7 +76,7 @@ public class ASTNode<T extends ASTNode> extends beaver.Symbol  implements Clonea
   /**
    * @ast method 
    * @aspect ASTUtil
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/astutil.jrag:9
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/astutil.jrag:9
    */
   protected Program getProgram() {
 		if(getParent() == null)
@@ -85,7 +85,7 @@ public class ASTNode<T extends ASTNode> extends beaver.Symbol  implements Clonea
 	}
   /** Report an error from some node within the AST. * @ast method 
    * @aspect Errors
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/errors.jrag:31
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/errors.jrag:31
    */
   public void error(String msg) {
 		getProgram().error(msg, getLine(getStart()), getColumn(getStart()));

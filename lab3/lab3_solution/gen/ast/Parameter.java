@@ -10,7 +10,7 @@ import java.lang.reflect.Modifier;
 /**
  * @production Parameter : {@link VarDecl};
  * @ast node
- * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/grammar.ast:17
+ * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/grammar.ast:17
  */
 public class Parameter extends VarDecl implements Cloneable {
   /**
@@ -191,7 +191,7 @@ public class Parameter extends VarDecl implements Cloneable {
   protected boolean type_visited = false;
   /** Type inference for parameters. * @attribute syn
    * @aspect types
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/types.jrag:36
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/types.jrag:36
    */
   public TypeDescriptor type() {
     if(type_visited)

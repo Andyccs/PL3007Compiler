@@ -10,7 +10,7 @@ import java.lang.reflect.Modifier;
 /**
  * @production JavaTypeName : {@link TypeName} ::= <span class="component">&lt;Name:String&gt;</span>;
  * @ast node
- * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/grammar.ast:25
+ * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/grammar.ast:25
  */
 public class JavaTypeName extends TypeName implements Cloneable {
   /**
@@ -191,7 +191,7 @@ public class JavaTypeName extends TypeName implements Cloneable {
   protected TypeDescriptor getDescriptor_value;
   /** Determine type descriptor for type name. * @attribute syn
    * @aspect types
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/types.jrag:33
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/types.jrag:33
    */
   @SuppressWarnings({"unchecked", "cast"})
   public TypeDescriptor getDescriptor() {

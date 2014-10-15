@@ -10,7 +10,7 @@ import java.lang.reflect.Modifier;
 /**
  * @production MulExpr : {@link BinaryExpr};
  * @ast node
- * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/grammar.ast:48
+ * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/grammar.ast:48
  */
 public class MulExpr extends BinaryExpr implements Cloneable {
   /**

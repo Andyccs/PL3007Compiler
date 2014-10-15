@@ -10,7 +10,7 @@ import java.lang.reflect.Modifier;
 /**
  * @production Module : {@link ASTNode} ::= <span class="component">&lt;Package:String&gt;</span> <span class="component">&lt;Name:String&gt;</span> <span class="component">{@link Import}*</span> <span class="component">{@link Declaration}*</span>;
  * @ast node
- * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/grammar.ast:3
+ * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/grammar.ast:3
  */
 public class Module extends ASTNode<ASTNode> implements Cloneable, Scope {
   /**
@@ -96,7 +96,7 @@ public class Module extends ASTNode<ASTNode> implements Cloneable, Scope {
   /**
    * @ast method 
    * @aspect Namecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/namecheck.jrag:17
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/namecheck.jrag:17
    */
   public void namecheck() {
 		// check for duplicate imports
@@ -113,7 +113,7 @@ public class Module extends ASTNode<ASTNode> implements Cloneable, Scope {
   /**
    * @ast method 
    * @aspect Typecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/typecheck.jrag:21
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/typecheck.jrag:21
    */
   public void typecheck() {
 		for(Declaration decl : getDeclarations())
@@ -536,7 +536,7 @@ public class Module extends ASTNode<ASTNode> implements Cloneable, Scope {
   /**
    * @attribute syn
    * @aspect names
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/names.jrag:9
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/names.jrag:9
    */
   @SuppressWarnings({"unchecked", "cast"})
   public String getQualifiedName() {
@@ -563,7 +563,7 @@ public class Module extends ASTNode<ASTNode> implements Cloneable, Scope {
   /**
    * @attribute syn
    * @aspect names
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/names.jrag:86
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/names.jrag:56
    */
   @SuppressWarnings({"unchecked", "cast"})
   public FieldDeclaration lookupLocalField(String name) {
@@ -585,22 +585,13 @@ public class Module extends ASTNode<ASTNode> implements Cloneable, Scope {
    * @apilevel internal
    */
   private FieldDeclaration lookupLocalField_compute(String name) {
-
-		/* TODO: Implement local lookup of a field within a module. */
-		
-		for(Declaration decl : getDeclarations())
-		{
-			if(decl instanceof FieldDeclaration)
-			{
-				FieldDeclaration DF = (FieldDeclaration) decl;
-				
-				if(DF.getVarDecl().getName().equals(name))
-				{
-					return DF;
-				}
+		for(Declaration decl : getDeclarations()) {
+			if(decl instanceof FieldDeclaration) {
+				VarDecl vd = ((FieldDeclaration)decl).getVarDecl();
+				if(vd.getName().equals(name))
+					return (FieldDeclaration)decl;
 			}
 		}
-		
 		return null;
 	}
   /**
@@ -611,7 +602,7 @@ public class Module extends ASTNode<ASTNode> implements Cloneable, Scope {
   /**
    * @attribute syn
    * @aspect names
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/names.jrag:146
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/names.jrag:95
    */
   @SuppressWarnings({"unchecked", "cast"})
   public TypeDeclaration lookupLocalType(String name) {
@@ -633,20 +624,9 @@ public class Module extends ASTNode<ASTNode> implements Cloneable, Scope {
    * @apilevel internal
    */
   private TypeDeclaration lookupLocalType_compute(String name) {
-		/* TODO: Implement; same as lookupLocalField */
-		
 		for(Declaration decl : getDeclarations())
-		{
-			if(decl instanceof TypeDeclaration)
-			{
-				TypeDeclaration typeDecl = (TypeDeclaration) decl;
-				
-				if(typeDecl.getName().equals(name))
-				{
-					return typeDecl;
-				}
-			}
-		}
+			if(decl instanceof TypeDeclaration && ((TypeDeclaration)decl).getName().equals(name))
+				return (TypeDeclaration)decl;
 		return null;
 	}
   /**
@@ -657,7 +637,7 @@ public class Module extends ASTNode<ASTNode> implements Cloneable, Scope {
   /**
    * @attribute syn
    * @aspect names
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/names.jrag:194
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/names.jrag:119
    */
   @SuppressWarnings({"unchecked", "cast"})
   public FunctionDeclaration lookupLocalFunction(String name) {
@@ -679,24 +659,13 @@ public class Module extends ASTNode<ASTNode> implements Cloneable, Scope {
    * @apilevel internal
    */
   private FunctionDeclaration lookupLocalFunction_compute(String name) {
-
-		/* TODO: Implement; same as lookupLocalField */
-		
 		for(Declaration decl : getDeclarations())
-		{
-			if(decl instanceof FunctionDeclaration)
-			{
-				FunctionDeclaration functionDecl = (FunctionDeclaration) decl;
-				if(functionDecl.getName().equals(name))
-				{
-					return functionDecl;
-				}
-			}
-		}
+			if(decl instanceof FunctionDeclaration && ((FunctionDeclaration)decl).getName().equals(name))
+				return (FunctionDeclaration)decl;
 		return null;
 	}
   /**
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/astutil.jrag:30
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/astutil.jrag:30
    * @apilevel internal
    */
   public Module Define_Module_getModule(ASTNode caller, ASTNode child) {
@@ -706,115 +675,73 @@ public class Module extends ASTNode<ASTNode> implements Cloneable, Scope {
     }
   }
   /**
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/names.jrag:52
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/names.jrag:39
    * @apilevel internal
    */
   public VarDecl Define_VarDecl_lookupVar(ASTNode caller, ASTNode child, String name) {
      { 
    int childIndex = this.getIndexOfChild(caller);
 {
-		FieldDeclaration decl;
-
-		/* TODO: Implement lookup of a field within a module scope.
-		 * 
-		 *       First, you should try to find the field among the locally declared fields
-		 *       (use attribute lookupLocalField declared below). Otherwise, it should
-		 *       be looked up among the imported modules (again using lookupLocalField); in
-		 *       that case, however, the field is only found if it is declared public
-		 *       (use attribute isPublic).
-		 */
+		// first try local lookup
+		FieldDeclaration decl = lookupLocalField(name);
+		if(decl != null)
+			return decl.getVarDecl();
 		
-			decl = this.lookupLocalField(name);
-			
-		 	if (decl != null)
-		 	{
-		 		return decl.getVarDecl();
-		 	}
-		 	else 
-		 	{
-		 		for (Import imp : getImports())
-		 		{
-		 			decl = imp.resolve().lookupLocalField(name);
-		 			
-		 			if (decl != null && decl.isPublic()) 
-		 				return decl.getVarDecl();
-		 			else
-		 				return null;
-		 		}
-		 	}
-		 	return null;
-	}
-    }
-  }
-  /**
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/names.jrag:120
-   * @apilevel internal
-   */
-  public TypeDeclaration Define_TypeDeclaration_lookupType(ASTNode caller, ASTNode child, String name) {
-     { 
-   int childIndex = this.getIndexOfChild(caller);
-{
-		TypeDeclaration tp;
-
-		/* TODO: implement type lookup within a module scope; it works the same as for fields */
-		
-		tp = this.lookupLocalType(name);
-		
-		if(tp == null)
-		{		
-			for(Import imp : getImports())
-			{
-				tp = imp.reslove().lookupLocalType(name);
-				if (tp != null && tp.isPublic())
-					return tp;
-				else return null;
-			}	
-		}
-		
-		else 
-		{
-			return tp;		
+		// otherwise try lookup imported fields
+		for(Import imp : getImports()) {
+			decl = imp.resolve().lookupLocalField(name);
+			// import only if it is public
+			if(decl != null && decl.isPublic())
+				return decl.getVarDecl();
 		}
 		return null;
 	}
     }
   }
   /**
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/names.jrag:168
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/names.jrag:81
+   * @apilevel internal
+   */
+  public TypeDeclaration Define_TypeDeclaration_lookupType(ASTNode caller, ASTNode child, String name) {
+     { 
+   int childIndex = this.getIndexOfChild(caller);
+{
+		TypeDeclaration tp = lookupLocalType(name);
+		if(tp != null)
+			return tp;
+		
+		for(Import imp : getImports()) {
+			tp = imp.resolve().lookupLocalType(name);
+			if(tp != null && tp.isPublic())
+				return tp;
+		}
+		return null;
+	}
+    }
+  }
+  /**
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/names.jrag:106
    * @apilevel internal
    */
   public FunctionDeclaration Define_FunctionDeclaration_lookupFunction(ASTNode caller, ASTNode child, String name) {
      { 
    int childIndex = this.getIndexOfChild(caller);
 {
-		FunctionDeclaration fn;
-
-		/* TODO: implement function lookup within a module scope; it works the same as for fields */
+		FunctionDeclaration fn = lookupLocalFunction(name);
+		if(fn != null)
+			return fn;
 		
-		fn = this.lookupLocalFunction(name);
-		
-		 if (fn == null){
-		 
-		 		for (Import imp : getImports())
-		 		{
-					fn = imp.resolve().lookupLocalFunction(name);
-		 			if (fn != null && fn.isPublic())
-		 				return fn;
-		 			else return null;
-		 		}
-		 }
-		 
-		 else 
-		 {
-		 		return fn;
-		 }
-		 
-		 return null;
+		for(Import imp : getImports()) {
+			fn = imp.resolve().lookupLocalFunction(name);
+			if(fn != null && fn.isPublic())
+				return fn;
+		}
+		return null;
 	}
     }
   }
   /**
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/astutil.jrag:26
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/astutil.jrag:26
    * @apilevel internal
    */
   public Scope Define_Scope_getScope(ASTNode caller, ASTNode child) {

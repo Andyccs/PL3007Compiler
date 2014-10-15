@@ -10,7 +10,7 @@ import java.lang.reflect.Modifier;
 /**
  * @production IntTypeName : {@link TypeName};
  * @ast node
- * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/grammar.ast:20
+ * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/grammar.ast:20
  */
 public class IntTypeName extends TypeName implements Cloneable {
   /**
@@ -122,7 +122,7 @@ public class IntTypeName extends TypeName implements Cloneable {
   protected TypeDescriptor getDescriptor_value;
   /** Determine type descriptor for type name. * @attribute syn
    * @aspect types
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/types.jrag:22
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/types.jrag:22
    */
   @SuppressWarnings({"unchecked", "cast"})
   public TypeDescriptor getDescriptor() {

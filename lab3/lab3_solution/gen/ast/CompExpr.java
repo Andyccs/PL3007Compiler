@@ -10,7 +10,7 @@ import java.lang.reflect.Modifier;
 /**
  * @production CompExpr : {@link BinaryExpr};
  * @ast node
- * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/grammar.ast:54
+ * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/grammar.ast:54
  */
 public abstract class CompExpr extends BinaryExpr implements Cloneable {
   /**
@@ -42,7 +42,7 @@ public abstract class CompExpr extends BinaryExpr implements Cloneable {
   /**
    * @ast method 
    * @aspect Typecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/typecheck.jrag:145
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/typecheck.jrag:145
    */
   public void typecheck() {
 		getLeft().typecheck();
@@ -164,7 +164,7 @@ public abstract class CompExpr extends BinaryExpr implements Cloneable {
   protected TypeDescriptor type_value;
   /** Type inference for expressions. * @attribute syn
    * @aspect types
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/types.jrag:47
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/types.jrag:47
    */
   @SuppressWarnings({"unchecked", "cast"})
   public TypeDescriptor type() {

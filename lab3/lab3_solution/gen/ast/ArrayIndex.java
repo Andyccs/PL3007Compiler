@@ -10,7 +10,7 @@ import java.lang.reflect.Modifier;
 /**
  * @production ArrayIndex : {@link LHSExpr} ::= <span class="component">Base:{@link Expr}</span> <span class="component">Index:{@link Expr}</span>;
  * @ast node
- * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/grammar.ast:41
+ * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/grammar.ast:41
  */
 public class ArrayIndex extends LHSExpr implements Cloneable {
   /**
@@ -84,7 +84,7 @@ public class ArrayIndex extends LHSExpr implements Cloneable {
   /**
    * @ast method 
    * @aspect Namecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/namecheck.jrag:146
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/namecheck.jrag:121
    */
   public void namecheck() {
 		getBase().namecheck();
@@ -93,7 +93,7 @@ public class ArrayIndex extends LHSExpr implements Cloneable {
   /**
    * @ast method 
    * @aspect Typecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/typecheck.jrag:103
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/typecheck.jrag:103
    */
   public void typecheck() {
 		getBase().typecheck();
@@ -216,7 +216,7 @@ public class ArrayIndex extends LHSExpr implements Cloneable {
   protected TypeDescriptor type_value;
   /** Type inference for expressions. * @attribute syn
    * @aspect types
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/types.jrag:42
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/types.jrag:42
    */
   @SuppressWarnings({"unchecked", "cast"})
   public TypeDescriptor type() {

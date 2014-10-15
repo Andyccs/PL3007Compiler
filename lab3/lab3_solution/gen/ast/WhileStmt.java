@@ -10,7 +10,7 @@ import java.lang.reflect.Modifier;
 /**
  * @production WhileStmt : {@link Stmt} ::= <span class="component">{@link Expr}</span> <span class="component">Body:{@link Stmt}</span>;
  * @ast node
- * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/grammar.ast:33
+ * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/grammar.ast:33
  */
 public class WhileStmt extends Stmt implements Cloneable {
   /**
@@ -78,7 +78,7 @@ public class WhileStmt extends Stmt implements Cloneable {
   /**
    * @ast method 
    * @aspect Namecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/namecheck.jrag:133
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/namecheck.jrag:109
    */
   public void namecheck() {
 		getExpr().namecheck();
@@ -87,7 +87,7 @@ public class WhileStmt extends Stmt implements Cloneable {
   /**
    * @ast method 
    * @aspect Typecheck
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/typecheck.jrag:88
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/typecheck.jrag:88
    */
   public void typecheck() {
 		getExpr().typecheck();
@@ -196,7 +196,7 @@ public class WhileStmt extends Stmt implements Cloneable {
     return (Stmt)getChildNoTransform(1);
   }
   /**
-   * @declaredat C:/teaching/CZ3007/lab3_solution/src/frontend/astutil.jrag:6
+   * @declaredat C:/Users/Andy/Desktop/PL3007Compiler/lab3/lab3_solution/src/frontend/astutil.jrag:6
    * @apilevel internal
    */
   public WhileStmt Define_WhileStmt_getEnclosingLoop(ASTNode caller, ASTNode child) {
