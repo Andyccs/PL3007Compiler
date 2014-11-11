@@ -52,6 +52,8 @@ public class StmtCodeGenerator extends Visitor<Void> {
 	public Void visitBreakStmt(BreakStmt nd) {
 		/* TODO: generate code for break statement (hint: use ASTNode.getEnclosingLoop and breakTargets;
 		 *       use units.add() to insert the statement into the surrounding method) */
+		Unit breakTarget = breakTargets.get(nd.getEnclosingLoop());
+		units.add(j.newGotoStmt(breakTarget));
 		return null;
 	}
 
