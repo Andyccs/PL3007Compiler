@@ -168,31 +168,26 @@ public class ExprCodeGenerator extends Visitor<Value> {
 		Visitor<Value> binaryExVisitor = new Visitor<Value>(){
 			@Override
 			public Value visitAddExpr(AddExpr nd) {
-				// TODO Auto-generated method stub
 				return Jimple.v().newAddExpr(left,right);
 			}
 			
 			@Override
 			public Value visitSubExpr(SubExpr nd) {
-				// TODO Auto-generated method stub
 				return Jimple.v().newSubExpr(left,right);
 			}
 			
 			@Override
 			public Value visitMulExpr(MulExpr nd) {
-				// TODO Auto-generated method stub
 				return Jimple.v().newMulExpr(left, right);
 			}
 			
 			@Override
 			public Value visitDivExpr(DivExpr nd) {
-				// TODO Auto-generated method stub
 				return Jimple.v().newDivExpr(left, right);
 			}
 			
 			@Override
 			public Value visitModExpr(ModExpr nd) {
-				// TODO Auto-generated method stub
 				return Jimple.v().newRemExpr(left, right);
 			}
 		};
