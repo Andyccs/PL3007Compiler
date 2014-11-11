@@ -243,7 +243,7 @@ public class ExprCodeGenerator extends Visitor<Value> {
 	@Override
 	public Value visitNegExpr(NegExpr nd) {
 		/* TODO: generate code for negation expression */
-		return null;
+		return Jimple.v().newNegExpr(wrap(nd.getOperand().accept(this)));
 	}
 	
 	/** Generate code for a function call. */
