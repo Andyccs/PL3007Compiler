@@ -136,7 +136,9 @@ public class ExprCodeGenerator extends Visitor<Value> {
 	@Override
 	public Value visitArrayIndex(ArrayIndex nd) {
 		/* TODO: generate code for array index */
-		return null;
+		final Value base = wrap(nd.getBase().accept(this)),
+				index = wrap(nd.getIndex().accept(this));
+		return Jimple.v().newArrayRef(base,index);
 	}
 	
 	/** Generate code for a variable name. */
