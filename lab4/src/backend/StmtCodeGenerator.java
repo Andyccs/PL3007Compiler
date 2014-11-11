@@ -98,6 +98,16 @@ public class StmtCodeGenerator extends Visitor<Void> {
 		/* TODO: generate code for while statement as discussed in lecture; add the NOP statement you
 		 *       generate as the break target to the breakTargets map
 		 */
+		NopStmt label0 = j.newNopStmt();
+		units.add(label0);
+		
+		NopStmt breakTarget = j.newNopStmt();
+		breakTargets.put(nd, breakTarget);
+		
+		Value cond = ExprCodeGenerator.generate(nd.getExpr(), fcg);
+		units.add(j.newIfStmt(j.newEqExpr(cond, IntConstant.v(0)), breakTarget));
+		nd.getBody().accept(this);
+		units.add(j.newGotoStmt(label0));
 		return null;
 	}
 }
