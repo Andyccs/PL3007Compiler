@@ -43,6 +43,7 @@ public class StmtCodeGenerator extends Visitor<Void> {
 	@Override
 	public Void visitExprStmt(ExprStmt nd) {
 		/* TODO: generate code for expression statement (hint: use ExprCodeGenerator.generate) */
+		ExprCodeGenerator.generate(nd.getExpr(), fcg);
 		return null;
 	}
 	
