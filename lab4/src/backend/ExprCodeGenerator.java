@@ -98,14 +98,14 @@ public class ExprCodeGenerator extends Visitor<Value> {
 	@Override
 	public Value visitIntLiteral(IntLiteral nd) {
 		/* TODO: return something meaningful here */
-		return null;
+		return IntConstant.v(nd.getValue());
 	}
 	
 	/** Generate code for a string literal. */
 	@Override
 	public Value visitStringLiteral(StringLiteral nd) {
 		/* TODO: return something meaningful here */
-		return null;
+		return StringConstant.v(nd.getValue());
 	}
 	
 	/** Generate code for a Boolean literal. */
@@ -113,7 +113,9 @@ public class ExprCodeGenerator extends Visitor<Value> {
 	public Value visitBooleanLiteral(BooleanLiteral nd) {
 		/* TODO: return something meaningful here (hint: translate 'true' to integer
 		 *       constant 1, 'false' to integer constant 0) */
-		return null;
+		return nd.getValue()==true?
+				IntConstant.v(1):
+					IntConstant.v(0);
 	}
 	
 	/** Generate code for an array literal. */
@@ -159,7 +161,41 @@ public class ExprCodeGenerator extends Visitor<Value> {
 		 *       generate code in the more specialised visitor methods visitAddExpr,
 		 *       visitSubExpr, etc., instead
 		 */
-		return null;
+		final Value left = wrap(nd.getLeft().accept(this)),
+				right = wrap(nd.getRight().accept(this));
+		Visitor<Value> binaryExVisitor = new Visitor<Value>(){
+			@Override
+			public Value visitAddExpr(AddExpr nd) {
+				// TODO Auto-generated method stub
+				return Jimple.v().newAddExpr(left,right);
+			}
+			
+			@Override
+			public Value visitSubExpr(SubExpr nd) {
+				// TODO Auto-generated method stub
+				return Jimple.v().newSubExpr(left,right);
+			}
+			
+			@Override
+			public Value visitMulExpr(MulExpr nd) {
+				// TODO Auto-generated method stub
+				return Jimple.v().newMulExpr(left, right);
+			}
+			
+			@Override
+			public Value visitDivExpr(DivExpr nd) {
+				// TODO Auto-generated method stub
+				return Jimple.v().newDivExpr(left, right);
+			}
+			
+			@Override
+			public Value visitModExpr(ModExpr nd) {
+				// TODO Auto-generated method stub
+				return Jimple.v().newRemExpr(left, right);
+			}
+		};
+		Value res = nd.accept(binaryExVisitor);
+		return res;
 	}
 	
 	/** Generate code for a comparison expression. */
