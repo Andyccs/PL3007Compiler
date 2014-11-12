@@ -111,6 +111,7 @@ public class StmtCodeGenerator extends Visitor<Void> {
 		units.add(j.newIfStmt(j.newEqExpr(cond, IntConstant.v(0)), breakTarget));
 		nd.getBody().accept(this);
 		units.add(j.newGotoStmt(label0));
+		units.add(breakTarget);
 		return null;
 	}
 }
