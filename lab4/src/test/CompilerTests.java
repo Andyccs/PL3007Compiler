@@ -164,8 +164,7 @@ public class CompilerTests {
 	@Test public void testDivision() {
 		runtest("module Test {" +
 				"  public int f() {" +
-				"    int a = 42/2;" +
-				"    return a;" +
+				"    return 42/2;" +
 				"  }" +
 				"}",
 				"Test",
@@ -354,16 +353,17 @@ public class CompilerTests {
 				1);
 	}
 	
-	@Test public void testAnything() {
+	@Test public void testWhileStatement() {
 		runtest("module Test {" +
-				"  public boolean f() {" +
-				"    boolean a;" +
-				"    a = true;" +
-				"    while(a)" +
-				"    	if(a)" +
-				"    		a = false;" +
-				"    	else" +
-				"    		a = true;" +
+				"  public int f() {" +
+				"    int a;"+
+				"    int b;"+
+				"    a=40;"+
+				"    b=24;"+
+				"    while(a!=b){" +
+				"    	if(a>b) a=a-b;" +
+				"    	else b=b-a;" +
+				"	 }"+
 				"    return a;" +
 				"  }" +
 				"}",
@@ -371,6 +371,25 @@ public class CompilerTests {
 				"f",
 				new Class<?>[0],
 				new Object[0],
-				false);
+				8);
+	}
+	
+	@Test public void testBreakStatement() {
+		runtest("module Test {" +
+				"  public int f() {" +
+				"    int a;"+
+				"    a=40;"+
+				"    while(true){" +
+				"    	a=a-1;" +
+				"    	if(a==4) break;"+
+				"	 }"+
+				"    return a;" +
+				"  }" +
+				"}",
+				"Test",
+				"f",
+				new Class<?>[0],
+				new Object[0],
+				4);
 	}
 }
